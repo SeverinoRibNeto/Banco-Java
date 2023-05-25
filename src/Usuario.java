@@ -5,9 +5,9 @@ public class Usuario {
 
 
     public Usuario(String nome, String tipoConta){
-        this.nome = nome;
-        this.tipoConta=tipoConta;
-        this.saldo=0;
+        this.setNome(nome);
+        this.setTipoConta(tipoConta);
+        this.setSaldo(0);
     }
 
     public String getNome() {
@@ -15,6 +15,17 @@ public class Usuario {
     }
     public void setNome(String nome){
         this.nome = nome;
+    }
+
+    public void transferirDinheiro(double valor){
+        // Função recebe o valor a ser transferido e desconta do saldo total
+        double saldo_atual = this.getSaldo();
+        saldo_atual -= valor;
+        this.setSaldo(saldo_atual);
+    }
+
+    public double verSaldo(){
+        return this.getSaldo();
     }
 
     public String getTipoConta() {
